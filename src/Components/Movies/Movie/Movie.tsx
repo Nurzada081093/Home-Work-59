@@ -1,16 +1,33 @@
 import './Movie.css';
+import React, { useEffect } from 'react';
+import { IMovie } from '../../../types';
 
-const Movie = () => {
+interface IProps {
+  movie: IMovie;
+}
+
+const Movie: React.FC<IProps> = React.memo(({movie}) => {
+
+  console.log('[Movie] render');
+
+  useEffect(() => {
+    console.log('[PostCard] mounted!');
+  }, []);
+
+  const changeMovieName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log('Изменено:', e.target.value);
+  };
+
   return (
     <div className="movie-block">
       <div className="movie">
         <label htmlFor="name"></label>
         <input
           type="text"
-          // value={name}
+          value={movie.name}
           id="name"
           name="name"
-          // onChange={onChange}
+          onChange={changeMovieName}
           required/>
       </div>
       <div className="movie-button">
@@ -23,6 +40,6 @@ const Movie = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Movie;
