@@ -5,9 +5,10 @@ import { IMovie } from '../../../types';
 interface IProps {
   movie: IMovie;
   removeMovie: MouseEventHandler;
+  editMovieName: (id: string, name: string) => void;
 }
 
-const Movie: React.FC<IProps> = React.memo(({movie, removeMovie}) => {
+const Movie: React.FC<IProps> = React.memo(({movie, removeMovie, editMovieName}) => {
 
   console.log('[Movie] render');
 
@@ -16,7 +17,7 @@ const Movie: React.FC<IProps> = React.memo(({movie, removeMovie}) => {
   }, []);
 
   const changeMovieName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('Изменено:', e.target.value);
+    editMovieName(movie.id, e.target.value);
   };
 
   return (
@@ -41,6 +42,8 @@ const Movie: React.FC<IProps> = React.memo(({movie, removeMovie}) => {
       </div>
     </div>
   );
+}, (prevProps, nextProps) => {
+  return nextProps.movie.id === prevProps.movie.id && nextProps.movie.name === prevProps.movie.name;
 });
 
 export default Movie;

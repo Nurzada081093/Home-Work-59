@@ -9,6 +9,7 @@
   height: 400px;
   border: 1px solid grey;
   border-radius: 10px;
+  overflow: auto;
 }
 
 .empty-block {

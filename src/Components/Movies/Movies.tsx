@@ -7,9 +7,10 @@ import { IMovie } from '../../types';
 interface IProps {
   movies: IMovie[];
   removeMovie: (id: string) => void;
+  editMovieName: (id: string, name: string) => void;
 }
 
-const Movies: React.FC<IProps> = ({movies, removeMovie}) => {
+const Movies: React.FC<IProps> = ({movies, removeMovie, editMovieName}) => {
 
   console.log('[Movies] render');
 
@@ -26,7 +27,11 @@ const Movies: React.FC<IProps> = ({movies, removeMovie}) => {
             <h2>To watch list:</h2>
           </div>
           {movies.map((movie) => (
-            <Movie key={movie.id} movie={movie} removeMovie={() => removeMovie(movie.id)} />
+            <Movie
+              key={movie.id}
+              movie={movie}
+              removeMovie={() => removeMovie(movie.id)}
+              editMovieName={editMovieName} />
           ))}
         </>
       ) : (
