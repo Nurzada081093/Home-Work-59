@@ -1,8 +1,9 @@
 .movie-block {
   display: flex;
   justify-content: space-between;
-  margin: 10px 0;
+  margin: 20px auto;
   align-items: center;
+  width: 95%;
 }
 
 .movie {

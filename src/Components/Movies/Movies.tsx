@@ -1,15 +1,15 @@
 import Movie from './Movie/Movie.tsx';
 import './Movies.css';
-import { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { IMovie } from '../../types';
 
-const Movies = () => {
 
-  const [movies, setMovies] = useState<IMovie[]>([
-    {id: '1', name: 'Интерстеллар (2014)'},
-    {id: '2', name: 'Зелёная миля (1999)'},
-    {id: '3', name: 'Дело храбрых (2017)'},
-  ]);
+interface IProps {
+  movies: IMovie[];
+  removeMovie: (id: string) => void;
+}
+
+const Movies: React.FC<IProps> = ({movies, removeMovie}) => {
 
   console.log('[Movies] render');
 
@@ -17,15 +17,21 @@ const Movies = () => {
     console.log('[Movies] mounted!');
   }, []);
 
+
   return (
     <>
-      <div className="title">
-        <h2>To watch list:</h2>
-      </div>
-      {movies.map((movie) => (
-        <Movie key={movie.id} movie={movie}/>
-      ))
-      }
+      {movies.length > 0 ? (
+        <>
+          <div className="title">
+            <h2>To watch list:</h2>
+          </div>
+          {movies.map((movie) => (
+            <Movie key={movie.id} movie={movie} removeMovie={() => removeMovie(movie.id)} />
+          ))}
+        </>
+      ) : (
+        <div className="empty-block">Your movie block is empty. Please add some movies!</div>
+      )}
     </>
   );
 };

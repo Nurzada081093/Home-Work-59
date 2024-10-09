@@ -1,17 +1,18 @@
 import './Movie.css';
-import React, { useEffect } from 'react';
+import React, { MouseEventHandler, useEffect } from 'react';
 import { IMovie } from '../../../types';
 
 interface IProps {
   movie: IMovie;
+  removeMovie: MouseEventHandler;
 }
 
-const Movie: React.FC<IProps> = React.memo(({movie}) => {
+const Movie: React.FC<IProps> = React.memo(({movie, removeMovie}) => {
 
   console.log('[Movie] render');
 
   useEffect(() => {
-    console.log('[PostCard] mounted!');
+    console.log('[Movie] mounted!');
   }, []);
 
   const changeMovieName = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,7 +33,7 @@ const Movie: React.FC<IProps> = React.memo(({movie}) => {
       </div>
       <div className="movie-button">
         <button
-          type="submit"
+          type="button" onClick={removeMovie}
         >
           <img width="24" height="24" src="https://img.icons8.com/material-rounded/24/delete-sign.png"
                alt="delete-sign"/>
