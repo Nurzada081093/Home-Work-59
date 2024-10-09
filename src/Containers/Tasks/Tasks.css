@@ -1,0 +1,9 @@
+.container {
+  width: 80%;
+  margin: 30px auto;
+}
+
+.movies-block {
+  margin: 20px auto;
+  width: 95%;
+}

@@ -1,9 +1,10 @@
 import './App.css';
+import Tasks from './Containers/Tasks/Tasks.tsx';
 
 const App = () => {
   return (
     <>
-      I'm starting my home work #59! ^_^
+      <Tasks/>
     </>
   );
 };

@@ -1,0 +1,39 @@
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.input-element {
+  width: 85%;
+  padding: 10px;
+}
+
+.input-element input {
+  width: 94%;
+  height: 30px;
+  padding: 5px 30px;
+  outline: none;
+  font-size: 20px;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+
+.button-element {
+  width: 100px;
+  height: 35px;
+  text-align: center;
+  margin-left: 10px;
+}
+
+.button-element button {
+  width: 90px;
+  height: 40px;
+  font-size: 20px;
+  background-color: #64d8ed;
+  border: none;
+  color: #817f7f;
+  border-radius: 10px;
+  text-align: center;
+}
