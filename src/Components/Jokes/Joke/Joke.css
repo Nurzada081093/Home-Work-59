@@ -1,0 +1,17 @@
+.joke-block {
+  background-color: rgba(211, 211, 211, 0.87);
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  padding: 5px 20px;
+  align-items: center;
+  margin: 10px auto;
+  border-radius: 10px;
+}
+
+.joke-block p {
+  font-size: 20px;
+  text-align: left;
+  border: 1px solid transparent;
+  width: 85%;
+}

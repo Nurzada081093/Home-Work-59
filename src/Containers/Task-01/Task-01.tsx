@@ -1,10 +1,10 @@
-import './Tasks.css';
+import './Task-01.css';
 import FormElement from '../../Components/FormElement/FormElement.tsx';
 import Movies from '../../Components/Movies/Movies.tsx';
 import { useState } from 'react';
 import { IMovie } from '../../types';
 
-const Tasks = () => {
+const Task01 = () => {
   const [movies, setMovies] = useState<IMovie[]>([]);
 
   const removeMovie = (id: string) => {
@@ -49,4 +49,4 @@ const Tasks = () => {
   );
 };
 
-export default Tasks;
+export default Task01;
