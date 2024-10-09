@@ -3,37 +3,59 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  background-color: rgba(255, 255, 255, 0.62);
+  width: 95%;
+  margin: 0 auto;
+  padding: 20px 10px;
+  border-radius: 10px;
 }
 
 .input-element {
   width: 85%;
-  padding: 10px;
+  border: 1px solid transparent;
+  margin: 10px;
 }
 
 .input-element input {
-  width: 94%;
+  width: 85%;
   height: 30px;
   padding: 5px 30px;
   outline: none;
   font-size: 20px;
-  border: 1px solid grey;
+  border: 1px solid transparent;
   border-radius: 10px;
+  margin-right: 10px;
+}
+
+.input-element input:hover {
+  border: 1px solid gainsboro;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.input-element input:focus {
+  background-color: rgba(220, 220, 220, 0.59);
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }
 
 .button-element {
   width: 100px;
   height: 35px;
   text-align: center;
-  margin-left: 10px;
 }
 
 .button-element button {
   width: 90px;
   height: 40px;
   font-size: 20px;
-  background-color: #64d8ed;
+  background-color: #05beea;
   border: none;
-  color: #817f7f;
+  color: white;
   border-radius: 10px;
   text-align: center;
+}
+
+.button-element button:hover {
+  background-color: rgba(50, 192, 218, 0.58);
+  color: white;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }

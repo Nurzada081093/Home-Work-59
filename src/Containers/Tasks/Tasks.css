@@ -1,3 +1,9 @@
+body {
+  background: url("https://bogatyr.club/uploads/posts/2023-06/thumbs/1687390642_bogatyr-club-p-oboi-temnie-tsveti-pinterest-3.jpg")
+    center center fixed no-repeat;
+  background-size: cover;
+}
+
 .container {
   width: 80%;
   margin: 30px auto;
@@ -6,15 +12,16 @@
 .movies-block {
   margin: 20px auto;
   width: 95%;
-  height: 400px;
+  height: 420px;
   border: 1px solid grey;
   border-radius: 10px;
   overflow: auto;
+  background-color: rgba(255, 255, 255, 0.71);
 }
 
 .empty-block {
-  font-size: 20px;
+  font-size: 30px;
   font-style: italic;
   text-align: center;
-  margin-top: 20%;
+  margin-top: 18%;
 }

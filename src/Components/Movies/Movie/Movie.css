@@ -3,7 +3,7 @@
   justify-content: space-between;
   margin: 20px auto;
   align-items: center;
-  width: 95%;
+  width: 85%;
 }
 
 .movie {
@@ -13,13 +13,24 @@
 }
 
 .movie input {
-  width: 93%;
+  width: 98%;
   height: 30px;
   padding: 5px 30px;
   outline: none;
   font-size: 20px;
-  border: 1px solid grey;
-  border-radius: 10px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+
+.movie input:hover {
+  border: 1px solid gainsboro;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.movie input:focus {
+  border: 1px solid gainsboro;
+  background-color: lightgrey;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }
 
 .movie-button {
@@ -35,11 +46,11 @@
 .movie-button button {
   border: none;
   text-align: center;
-  background-color: white;
+  background-color: transparent;
   cursor: pointer;
 }
 
-.movie-button:hover {
-  border: 1px solid grey;
-  border-radius: 10px;
+.movie-button img:hover {
+  width: 30px;
+  height: 30px;
 }

@@ -6,28 +6,25 @@ interface IProps {
   addNewMovie: (newMovie: IMovie) => void;
 }
 
-const FormElement: React.FC<IProps> = ({addNewMovie}) => {
-
+const FormElement: React.FC<IProps> = ({ addNewMovie }) => {
   const [newMovie, setNewMovie] = useState<IMovieProps>({
-    name: '',
+    name: "",
   });
 
-
-  const onChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewMovie((prevState) => {
       return {
         ...prevState,
-        [e.target.name] : e.target.value,
+        [e.target.name]: e.target.value,
       };
     });
   };
 
-
-  const submitNewMovie = (e:React.ChangeEvent<HTMLFormElement>) => {
+  const submitNewMovie = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (newMovie.name.trim().length ===0 ) {
-      alert('Please enter the name of the movie!');
+    if (newMovie.name.trim().length === 0) {
+      alert("Please enter the name of the movie!");
     } else {
       addNewMovie({
         id: String(new Date()),
@@ -35,9 +32,8 @@ const FormElement: React.FC<IProps> = ({addNewMovie}) => {
       });
 
       setNewMovie({
-        name: '',
+        name: "",
       });
-
     }
   };
 
@@ -52,14 +48,11 @@ const FormElement: React.FC<IProps> = ({addNewMovie}) => {
           name="name"
           onChange={onChange}
           placeholder="Enter the name of the movie..."
-          required/>
+          required
+        />
       </div>
       <div className="button-element">
-        <button
-          type="submit"
-        >
-          Add
-        </button>
+        <button type="submit">Add</button>
       </div>
     </form>
   );

@@ -8,7 +8,7 @@ const Tasks = () => {
   const [movies, setMovies] = useState<IMovie[]>([]);
 
   const removeMovie = (id: string) => {
-    setMovies((prevMovies) => prevMovies.filter((movie => movie.id !== id)));
+    setMovies((prevMovies) => prevMovies.filter((movie) => movie.id !== id));
   };
 
   const addNewMovie = (newMovie: IMovie) => {
@@ -17,15 +17,33 @@ const Tasks = () => {
 
   const editMovieName = (id: string, name: string) => {
     setMovies((prevMovies) =>
-      prevMovies.map((movie) => (movie.id === id ? { ...movie, name: name } : movie))
+      prevMovies.map((movie) =>
+        movie.id === id ? { ...movie, name: name } : movie,
+      ),
     );
   };
 
+  if (movies.length > 0) {
+    localStorage.setItem("Movies", JSON.stringify(movies));
+  } else {
+    const getMoviesFromLocalStorage = localStorage.getItem("Movies") as string;
+    if (getMoviesFromLocalStorage !== null) {
+      const moviesFromLS = JSON.parse(getMoviesFromLocalStorage);
+      moviesFromLS.map((movie: IMovie) => {
+        movies.push(movie);
+      });
+    }
+  }
+
   return (
     <div className="container">
-      <FormElement addNewMovie={addNewMovie}/>
+      <FormElement addNewMovie={addNewMovie} />
       <div className="movies-block">
-        <Movies movies={movies} removeMovie={removeMovie} editMovieName={editMovieName}/>
+        <Movies
+          movies={movies}
+          removeMovie={removeMovie}
+          editMovieName={editMovieName}
+        />
       </div>
     </div>
   );
