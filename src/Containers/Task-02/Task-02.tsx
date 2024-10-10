@@ -11,11 +11,22 @@ const Task02 = () => {
 
   const getNewJoke = async () => {
     try {
-      const response = await fetch(url);
-      if (response.ok) {
-        const joke = await response.json();
-        setJokes((prevJokes) => [...prevJokes, joke]);
+      const jokesArray = [];
+
+      for (let i = 0; i < 7; i++) {
+        const response = await fetch(url);
+        jokesArray.push(response);
       }
+
+      const allJokes = Promise.all(jokesArray);
+      const getAllJokes = await allJokes;
+
+      getAllJokes.map(async (oneJokeResponse) => {
+        if (oneJokeResponse.ok) {
+          const dataJoke = await oneJokeResponse.json();
+          setJokes((prevJokes) => [...prevJokes, dataJoke]);
+        }
+      });
     } catch (e) {
       alert('Error ' + e);
     }
